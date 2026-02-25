@@ -10,8 +10,8 @@ public :
 	~Dictionnaire(); // Destructeur
 
 	void ajouterMot(const std::string& mot);
-	void enleverMot(const std::string& mot);
-	void affcherDict() const;
+	bool enleverMot(const std::string& mot);
+	void afficherDict() const;
 	bool chercherMot(const std::string& mot) const;
 
 private : 
@@ -25,7 +25,7 @@ private :
 
 	void ajouterMotRec(Noeud*& noeud, const std::string& mot, size_t index);
 	bool enleverMotRec(Noeud*& noeud, const std::string& mot, size_t index);
-	bool chercheMotRec(const Noeud* noeud, const std::string& mot, size_t index) const;
+	bool chercherMotRec(const Noeud* noeud, const std::string& mot, size_t index) const;
 	void afficherDictRec(const Noeud* noeud, std::string mot) const;
 	void detruireArbre(Noeud* noeud);
 };

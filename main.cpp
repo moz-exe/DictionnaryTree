@@ -15,16 +15,16 @@ int main() {
 
     // Afficher le dictionnaire
     std::cout << "Dictionnaire :" << std::endl;
-    dict.affcherDict();
+    dict.afficherDict();
 
     // Chercher des mots
-    std::cout << "\nRecherche de 'arbre' : " << (dict.chercheMot("arbre") ? "Trouvé" : "Non trouvé") << std::endl;
-    std::cout << "Recherche de 'arbremagique' : " << (dict.chercheMot("arbremagique") ? "Trouvé" : "Non trouvé") << std::endl;
+    std::cout << "\nRecherche de 'arbre' : " << (dict.chercherMot("arbre") ? "Trouvé" : "Non trouvé") << std::endl;
+    std::cout << "Recherche de 'arbremagique' : " << (dict.chercherMot("arbremagique") ? "Trouvé" : "Non trouvé") << std::endl;
 
     // Enlever un mot
-    dict.enleveMot("las");
+    dict.enleverMot("las");
     std::cout << "\nAprès suppression de 'las' :" << std::endl;
-    dict.affcherDict();
+    dict.afficherDict();
 
     return 0;
 }
