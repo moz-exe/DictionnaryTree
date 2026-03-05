@@ -15,16 +15,57 @@ void Dictionnaire::ajouterMot(const std::string& mot) {
 }
 
 void Dictionnaire::ajouterMotRec(Noeud*& noeud, const std::string& mot, size_t index) {
+    // JSP si c'est nécessaire
     if (!noeud) {
         noeud = new Noeud(mot[index]);
     }
+    // JSP si c'est nécessaire
 
-    if (index == mot.size() - 1) {
+    if (index + 1 == mot.size()) {
         noeud->finMot = true;
         return;
     }
 
-    ajouterMotRec(noeud->gauche, mot, index + 1);
+    // ajouterMotRec(noeud->gauche, mot, index + 1);
+
+    if (!noeud->gauche) {
+
+        // Si pas de fils de gauche, on est sur une feuille, on ajoute forcément la prochaine lettre dans un nouveau neoud
+        // Si pas de fils de gauche alors pas de fils de droite non plus
+        // Noeud* nouveauNoeud = new Noeud(mot[index + 1]);
+        // std::cout << "oui" << std::endl;
+        // noeud->gauche = nouveauNoeud;
+        noeud->gauche = new Noeud(mot[0]);
+        // ajouterMotRec(noeud->gauche, mot, index + 1);
+    }
+
+    // else if (noeud->lettre == mot[index]) {
+    //     if (index == mot.size() - 1) {
+    //         noeud->finMot = true;
+    //         return;
+    //     }
+
+    //     else {
+    //         ajouterMotRec(noeud->gauche, mot, index + 1);
+    //     }
+    // }
+
+    // else if (!noeud->droite) {
+    //     if (mot[index] < noeud->gauche->lettre) { // Trie l'arbre par ordre alphabétique
+    //         noeud->droite = noeud->gauche;
+    //         noeud->gauche = new Noeud(mot[index]);
+    //         ajouterMotRec(noeud->gauche, mot, index);
+    //     }
+
+    //     else {
+    //         noeud->droite = new Noeud(mot[index]);
+    //         ajouterMotRec(noeud->droite, mot, index);
+    //     }
+    // }
+
+    // else {
+    //     ajouterMotRec(noeud->droite, mot, index);
+    // }
 }
 
 bool Dictionnaire::enleverMot(const std::string& mot) {

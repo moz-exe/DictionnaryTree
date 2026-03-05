@@ -1,0 +1,68 @@
+ajouterMot(str mot, int index, noeudDeDépart) :
+	si pas de fils de gauche (alors pas de fils de droite non plus)
+		on crée un nouveau noeud fils de gauche avec la prochaine lettre du mot
+		on appel récursivement ajouterMot sur le noeud crée
+		
+	sinon, si le noeud actuel == lettre actuelle
+		
+		si lettre actuelle == dernière lettre du mot
+			marquer le noeud comme fin
+		sinon
+			ajouterMot(mot, index + 1, fils de gauche)
+	
+	sinon
+		si pas de fils de droite
+			si lettre actuelle < fils de gauche :
+				fils de gauche devient fils de droite
+				on crée un nouveau noeud fils de gauche avec la lettre actuelle du mot
+				ajouterMot(mot, index, fils de gauche)
+				
+			sinon :
+				on crée un nouveau noeud fils de droite avec la lettre actuelle du mot
+				ajouterMot(mot, index, fils de droite)
+				
+		sinon
+			ajouterMot(mot, index, fils de droite)
+	
+		
+	
+enleverMot(mot)
+	if (chercherMot(mot))
+		
+
+afficherDict(mot = "", noeud)
+	nouveauMot = mot + noeud.lettre
+	if noeud.fin == True :
+		print nouveauMot
+		if fils de gauche not exists and fils de droite not exists :
+			return 0			
+		
+	if fils de gauche exists :
+		afficherDict(nouveauMot, fils de gauche)
+		
+	if fils de droite exists :
+		afficherDict(mot, fils de droite)
+		
+	
+
+chercherMot(str mot, int lettreDuMot, noeudDeDépart)
+	if mot[lettreDuMot] == lettreDuNoeud :
+		if mot[lettreDuMot] == dernière lettre du mot et noeud.fin == True :
+			return True
+			
+		else if fils de gauche exists :
+			chercherMot(str mot, int lettreDuMot + 1, fils de gauche)
+			
+		else :
+			return False
+			
+	else if fils de droite exists :
+		chercherMot(str mot, int lettreDuMot, fils de droite)
+		
+	else : 
+		return False
+
+
+
+
+noeud = bonne lettre --> on passe au fils de gauche
