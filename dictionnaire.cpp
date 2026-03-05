@@ -21,7 +21,7 @@ void Dictionnaire::ajouterMotRec(Noeud*& noeud, const std::string& mot, size_t i
     }
     // JSP si c'est nécessaire
 
-    if (index + 1 == mot.size()) {
+    if (index >= mot.length()) {
         noeud->finMot = true;
         return;
     }
